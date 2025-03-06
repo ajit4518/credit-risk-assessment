@@ -1,0 +1,42 @@
+# config/config.yaml
+project:
+  name: credit_risk_assessment
+  version: 1.0.0
+
+paths:
+  raw_data: data/raw/
+  processed_data: data/processed/
+  models: models/
+  reports: reports/
+  monitoring: monitoring/
+
+data:
+  train_file: credit_data_train.csv
+  test_file: credit_data_test.csv
+  target: default_flag
+  random_state: 42
+  test_size: 0.3
+  
+features:
+  categorical:
+    - employment_status
+    - housing_status
+    - product_type
+    - purpose
+  numerical:
+    - income
+    - debt_to_income_ratio
+    - loan_amount
+    - interest_rate
+    - credit_score
+  date_columns:
+    - origination_date
+
+preprocessing:
+  impute_strategy: median
+  outlier_treatment: cap
+  encoding_method: onehot
+
+model:
+  type: gradient_boosting
+  threshold: 0.3

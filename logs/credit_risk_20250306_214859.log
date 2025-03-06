@@ -1,0 +1,91 @@
+2025-03-06 21:48:59,787 - credit_risk - INFO - Created directory: data/raw/
+2025-03-06 21:48:59,787 - credit_risk - INFO - Created directory: data/processed/
+2025-03-06 21:48:59,788 - credit_risk - INFO - Created directory: models/
+2025-03-06 21:48:59,788 - credit_risk - INFO - Created directory: reports/
+2025-03-06 21:48:59,788 - credit_risk - INFO - Created directory: monitoring/
+2025-03-06 21:48:59,789 - credit_risk - INFO - Starting data processing
+2025-03-06 21:49:01,232 - src.data.acquisition - INFO - Loading training data from data/raw/credit_data_train.csv
+2025-03-06 21:49:01,233 - src.data.acquisition - ERROR - Training file not found at data/raw/credit_data_train.csv
+2025-03-06 21:49:01,233 - src.data.acquisition - INFO - Creating dummy data for development purposes
+2025-03-06 21:49:01,404 - src.data.acquisition - INFO - Generated synthetic credit dataset with 10000 samples
+2025-03-06 21:49:01,405 - src.data.acquisition - INFO - Default rate: 57.83%
+2025-03-06 21:49:01,408 - src.data.acquisition - ERROR - Test file not found at data/raw/credit_data_test.csv
+2025-03-06 21:49:01,408 - src.data.acquisition - INFO - Creating dummy test data
+2025-03-06 21:49:01,469 - src.data.acquisition - INFO - Generated synthetic credit dataset with 3000 samples
+2025-03-06 21:49:01,469 - src.data.acquisition - INFO - Default rate: 58.73%
+2025-03-06 21:49:01,470 - credit_risk - INFO - Loaded training data: (10000, 18) and test data: (3000, 18)
+2025-03-06 21:49:01,472 - src.data.preprocessing - INFO - Handling missing values using knn strategy
+2025-03-06 21:49:01,476 - src.data.preprocessing - INFO - Handling outliers using cap method
+2025-03-06 21:49:01,478 - src.data.preprocessing - INFO - Capping income at [18457.71, 188128.40]
+2025-03-06 21:49:01,479 - src.data.preprocessing - INFO - Found 100 low outliers and 100 high outliers in income
+2025-03-06 21:49:01,481 - src.data.preprocessing - INFO - Capping debt_to_income_ratio at [0.01, 0.36]
+2025-03-06 21:49:01,482 - src.data.preprocessing - INFO - Found 100 low outliers and 100 high outliers in debt_to_income_ratio
+2025-03-06 21:49:01,485 - src.data.preprocessing - INFO - Capping loan_amount at [2084.39, 232814.80]
+2025-03-06 21:49:01,485 - src.data.preprocessing - INFO - Found 100 low outliers and 100 high outliers in loan_amount
+2025-03-06 21:49:01,487 - src.data.preprocessing - INFO - Capping interest_rate at [0.00, 0.10]
+2025-03-06 21:49:01,488 - src.data.preprocessing - INFO - Found 100 low outliers and 100 high outliers in interest_rate
+2025-03-06 21:49:01,490 - src.data.preprocessing - INFO - Capping credit_score at [471.04, 850.00]
+2025-03-06 21:49:01,491 - src.data.preprocessing - INFO - Found 100 low outliers and 0 high outliers in credit_score
+2025-03-06 21:49:01,493 - src.data.features - INFO - Creating time-based features from origination_date
+2025-03-06 21:49:01,513 - src.data.features - INFO - Creating interaction features
+2025-03-06 21:49:01,529 - src.data.features - INFO - Creating risk flag features
+2025-03-06 21:49:01,545 - src.data.preprocessing - INFO - Encoding categorical features using onehot
+2025-03-06 21:49:01,581 - src.data.preprocessing - INFO - Scaling numerical features using standard
+2025-03-06 21:49:01,585 - src.data.preprocessing - INFO - Handling missing values using knn strategy
+2025-03-06 21:49:01,588 - src.data.preprocessing - INFO - Handling outliers using cap method
+2025-03-06 21:49:01,589 - src.data.preprocessing - INFO - Capping income at [20085.02, 190137.40]
+2025-03-06 21:49:01,590 - src.data.preprocessing - INFO - Found 30 low outliers and 30 high outliers in income
+2025-03-06 21:49:01,592 - src.data.preprocessing - INFO - Capping debt_to_income_ratio at [0.01, 0.36]
+2025-03-06 21:49:01,594 - src.data.preprocessing - INFO - Found 30 low outliers and 30 high outliers in debt_to_income_ratio
+2025-03-06 21:49:01,598 - src.data.preprocessing - INFO - Capping loan_amount at [2159.65, 239546.47]
+2025-03-06 21:49:01,599 - src.data.preprocessing - INFO - Found 30 low outliers and 30 high outliers in loan_amount
+2025-03-06 21:49:01,602 - src.data.preprocessing - INFO - Capping interest_rate at [0.00, 0.10]
+2025-03-06 21:49:01,602 - src.data.preprocessing - INFO - Found 30 low outliers and 30 high outliers in interest_rate
+2025-03-06 21:49:01,606 - src.data.preprocessing - INFO - Capping credit_score at [467.91, 850.00]
+2025-03-06 21:49:01,606 - src.data.preprocessing - INFO - Found 30 low outliers and 0 high outliers in credit_score
+2025-03-06 21:49:01,610 - src.data.features - INFO - Creating time-based features from origination_date
+2025-03-06 21:49:01,621 - src.data.features - INFO - Creating interaction features
+2025-03-06 21:49:01,625 - src.data.features - INFO - Creating risk flag features
+2025-03-06 21:49:01,885 - credit_risk - INFO - Saved processed training data to data/processed/processed_train.csv
+2025-03-06 21:49:01,885 - credit_risk - INFO - Saved processed test data to data/processed/processed_test.csv
+2025-03-06 21:49:01,887 - credit_risk - INFO - Starting model training
+2025-03-06 21:49:01,893 - credit_risk - INFO - Loaded model configuration
+2025-03-06 21:49:01,955 - credit_risk - INFO - Loaded processed training data: (10000, 39)
+2025-03-06 21:49:01,959 - credit_risk - INFO - Removing non-numeric columns for training: ['customer_id', 'origination_date_quarter', 'origination_date', 'origination_date_month', 'origination_date_year', 'purpose_Debt Consolidation', 'loan_id']
+2025-03-06 21:49:01,961 - credit_risk - INFO - Training set: (10000, 31), target distribution: default_flag
+1    0.5783
+0    0.4217
+Name: proportion, dtype: float64
+2025-03-06 21:49:01,962 - credit_risk - INFO - Training model type: gradient_boosting
+2025-03-06 21:49:02,040 - src.models.train - INFO - Training gradient boosting model with hyperparameter tuning
+2025-03-06 21:49:41,634 - src.models.train - INFO - Best parameters: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 200}
+2025-03-06 21:49:41,634 - src.models.train - INFO - Best CV score: 1.0000
+2025-03-06 21:49:41,647 - src.models.train - INFO - Model saved to models/credit_risk_model.pkl
+2025-03-06 21:49:41,648 - credit_risk - INFO - Model training complete
+2025-03-06 21:49:41,650 - credit_risk - INFO - Starting model evaluation
+2025-03-06 21:49:43,509 - credit_risk - INFO - Loaded model from models/credit_risk_model.pkl
+2025-03-06 21:49:43,510 - credit_risk - INFO - Loaded 31 feature names used during training
+2025-03-06 21:49:43,531 - credit_risk - INFO - Loaded test data: (3000, 29)
+2025-03-06 21:49:43,533 - credit_risk - WARNING - Adding 13 features missing from test data
+2025-03-06 21:49:43,537 - credit_risk - WARNING - Removing 10 extra features from test data: ['loan_id', 'customer_id', 'origination_date', 'employment_status', 'housing_status']...
+2025-03-06 21:49:43,540 - credit_risk - INFO - Aligned test features with training features, final shape: (3000, 31)
+2025-03-06 21:49:43,542 - src.models.evaluate - INFO - Evaluating model with threshold 0.5
+2025-03-06 21:49:43,569 - src.models.evaluate - INFO - accuracy: 1.0000
+2025-03-06 21:49:43,570 - src.models.evaluate - INFO - precision: 1.0000
+2025-03-06 21:49:43,570 - src.models.evaluate - INFO - recall: 1.0000
+2025-03-06 21:49:43,570 - src.models.evaluate - INFO - f1: 1.0000
+2025-03-06 21:49:43,570 - src.models.evaluate - INFO - roc_auc: 1.0000
+2025-03-06 21:49:43,571 - src.models.evaluate - INFO - avg_precision: 1.0000
+2025-03-06 21:49:43,571 - credit_risk - INFO - Model performance metrics: {'accuracy': 1.0, 'precision': 1.0, 'recall': 1.0, 'f1': 1.0, 'roc_auc': 1.0, 'avg_precision': 1.0}
+2025-03-06 21:49:43,571 - src.models.evaluate - INFO - Plotting ROC curve
+2025-03-06 21:49:44,118 - src.models.evaluate - INFO - ROC curve saved to reports/roc_curve.png
+2025-03-06 21:49:44,119 - src.models.evaluate - INFO - Plotting precision-recall curve
+2025-03-06 21:49:44,281 - src.models.evaluate - INFO - Precision-recall curve saved to reports/precision_recall_curve.png
+2025-03-06 21:49:44,281 - src.models.evaluate - INFO - Plotting confusion matrix with threshold 0.5
+2025-03-06 21:49:44,484 - src.models.evaluate - INFO - Confusion matrix saved to reports/confusion_matrix.png
+2025-03-06 21:49:44,485 - src.models.evaluate - INFO - Plotting score distribution
+2025-03-06 21:49:44,781 - src.models.evaluate - INFO - Score distribution saved to reports/score_distribution.png
+2025-03-06 21:49:44,788 - src.models.evaluate - INFO - Plotting calibration curve
+2025-03-06 21:49:44,965 - src.models.evaluate - INFO - Calibration curve saved to reports/calibration_curve.png
+2025-03-06 21:49:44,966 - credit_risk - INFO - Evaluation complete. Reports saved to reports/
+2025-03-06 21:49:44,967 - credit_risk - INFO - Full workflow completed successfully
